@@ -1,9 +1,3 @@
-######################################################################################################
-# Project
-# 11/8/2025
-###################################################################################################### 
-setwd("C:/Users/jungd/Desktop/UCLA/Fall 2025/437 Forecasting and time series/Group Project")
-
 library(forecast)
 library(tseries)
 library(xts)
@@ -15,7 +9,8 @@ library(tidyverse)
 library(lubridate)
 library(vars)
 
-fredr_set_key("2986a8b8e16cc52c859913388a3205ac") 
+# use your own fredr key
+# fredr_set_key("<your-own-fredr-key>") 
 
 readRenviron("~/.Renviron")
 Sys.getenv("FRED_API_KEY")
@@ -122,7 +117,7 @@ data_model_ready <- transform_data(final_data_levels)
 
 print(head(data_model_ready))
 
-# --- 7. Now, Your Plot Will Work ---
+# --- 7. Transformed Series Diagnostics (Returns & Differences) ---
 
 plot.xts(data_model_ready,
          main = "Weekly Log Returns & Diffs (Stationary Data)",
@@ -191,7 +186,7 @@ total_obs <- nrow(data_model_ready)
 split_point <- floor(total_obs * 0.80)
 
 
-# --- 2. Split Your "Levels" Data CHRONOLOGICALLY ---
+# --- 2. Split "Levels" Data CHRONOLOGICALLY ---
 train_data_levels <- data_model_ready[1:split_point, ]
 test_data_levels  <- data_model_ready[(split_point + 1):total_obs, ]
 
@@ -243,7 +238,7 @@ ccf(as.numeric(data_model_ready$T10Y2Y),
 # no significant leading indicator
 
 
-# This function will create the xreg matrix from a given dataset
+# Create the xreg matrix from a given dataset
 create_xreg_matrix <- function(data) {
   # Initialize an xts object with the right dates
   xreg <- xts(order.by = index(data))
@@ -569,7 +564,7 @@ print(accuracy(forecast_model_ndaq))
 
 # --- 7. Plot Forecast vs. Actual (Out-of-Sample) ---
 
-# Get the predictions from your model
+# Get the predictions from the model
 # These are the "fitted" values on the test set
 predictions_ndaq <- forecast_model_ndaq$fitted
 predictions_ndaq
@@ -583,7 +578,6 @@ comparison_data_ndaq <- merge(actuals_ndaq, predictions_ndaq)
 colnames(comparison_data_ndaq) <- c("Actual NASDAQ Returns", "ARIMAX Forecast")
 
 # 3. Plot the *merged* object.
-# plot.xts is smart enough to handle the rest.
 plot.xts(comparison_data_ndaq, 
          main = "Out-of-Sample Forecast vs. Actual NASDAQ Returns", 
          ylab = "Log Return",
