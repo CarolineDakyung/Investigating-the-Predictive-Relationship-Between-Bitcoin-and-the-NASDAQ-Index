@@ -75,6 +75,7 @@ Model form:
 
 ```text
 Target ~ Macroeconomic Drivers
+```
 
 ### 5. Vector Autoregression (VAR)
 
@@ -132,12 +133,14 @@ install.packages(c(
   "tidyr",
   "tibble"
 ))
+```
 
 2. Run the Script
 
 Place model.R in your working directory and run:
 ```bash
 Rscript model.R
+```
 
 or open in RStudio and execute.
 
