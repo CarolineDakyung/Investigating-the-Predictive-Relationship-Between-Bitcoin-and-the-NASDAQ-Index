@@ -126,18 +126,18 @@ Models are evaluated on out-of-sample test sets.
 ```bash
 install.packages(c(
   "forecast",
-  "vars",
   "tseries",
-  "quantmod",
-  "fredr",
-  "ggplot2",
-  "dplyr",
-  "tidyr",
-  "tibble",
-  "lubridate",
-  "corrplot",
   "xts",
-  "zoo"
+  "fredr",
+  "quantmod",
+  "zoo",
+  "dplyr",
+  "tidyverse",
+  "lubridate",
+  "vars",
+  "corrplot",
+  "tibble",
+  "ggplot2"
 ))
 ```
 
