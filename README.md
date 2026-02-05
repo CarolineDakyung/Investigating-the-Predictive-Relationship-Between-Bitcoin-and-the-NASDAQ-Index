@@ -90,7 +90,7 @@ Target ~ Macroeconomic Drivers
 - Estimate impulse response functions
 - Evaluate dynamic interactions
 
-7. Model Evaluation
+### 7. Model Evaluation
 
 Performance metrics:
 
