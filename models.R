@@ -1,3 +1,6 @@
+# Modify the setwd() path to match your local project folder
+setwd("YOUR_LOCAL_PROJECT_PATH")
+
 library(forecast)
 library(tseries)
 library(xts)
@@ -9,8 +12,8 @@ library(tidyverse)
 library(lubridate)
 library(vars)
 
-# use your own fredr key
-# fredr_set_key("<your-own-fredr-key>") 
+# Use your own fredr API key
+fredr_set_key("YOUR_FRED_API_KEY")
 
 readRenviron("~/.Renviron")
 Sys.getenv("FRED_API_KEY")
