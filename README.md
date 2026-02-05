@@ -128,10 +128,16 @@ install.packages(c(
   "forecast",
   "vars",
   "tseries",
+  "quantmod",
+  "fredr",
   "ggplot2",
   "dplyr",
   "tidyr",
-  "tibble"
+  "tibble",
+  "lubridate",
+  "corrplot",
+  "xts",
+  "zoo"
 ))
 ```
 
