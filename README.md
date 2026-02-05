@@ -1,4 +1,3 @@
-```md
 # Investigating the Predictive Relationship Between Bitcoin and NASDAQ
 
 ## Overview
